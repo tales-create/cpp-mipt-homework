@@ -8,7 +8,10 @@ int main(int argc, char *argv[]) {
     int count = atoi(argv[2]);
 
     for (int i = 0; i < count; ++i) {
-        printf("%s%s", word, (i == count - 1) ? "" : " ");
+        printf("%s", word);
+        if (i < count - 1) {
+            printf(" ");
+        }
     }
     printf("\n");
 
