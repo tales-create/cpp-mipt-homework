@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
     int parsed = sscanf(argv[1], "%lld %c %lld %1s", &a, &op, &b, tail);
 
     if (parsed < 3) {
-        // Проверяем, ввели ли правильные числа
+        
         long long dummy_a, dummy_b;
         char dummy_op;
         if (sscanf(argv[1], "%*f %c %*f", &dummy_op) > 0 || sscanf(argv[1], "%lld", &dummy_a) == 1) {
