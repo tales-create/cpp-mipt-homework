@@ -1,0 +1,11 @@
+&a bss
+&b data
+&c rodata
+&d stack
+&e bss
+pi heap
+&s stack
+ps rodata
+f text
+main text
+"fox" rodata
