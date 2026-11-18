@@ -1,14 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-typedef struct { unsigned char r, g, b; } Color;
+typedef struct {
+    unsigned char r, g, b;
+} Color;
 
 int main(int argc, char** argv) {
-    if (argc != 2) return 1;
+    if (argc != 2) {
+        printf("Usage: %s <image.ppm>\n", argv[0]);
+        return 1;
+    }
 
     FILE* f = fopen(argv[1], "rb");
-    if (!f) return 1;
 
     char format[3];
     int w, h, maxval;
