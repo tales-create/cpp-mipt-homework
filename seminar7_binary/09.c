@@ -40,10 +40,6 @@ int main(int argc, char** argv) {
     srand(time(NULL));
 
     Color* canvas = (Color*)malloc(WIDTH * HEIGHT * sizeof(Color));
-    if (!canvas) {
-        perror("malloc");
-        return 1;
-    }
 
     Color white = {255, 255, 255};
     for (int i = 0; i < WIDTH * HEIGHT; i++) {
@@ -62,12 +58,7 @@ int main(int argc, char** argv) {
     }
 
     FILE* f = fopen("circles.ppm", "wb");
-    if (!f) {
-        perror("fopen");
-        free(canvas);
-        return 1;
-    }
-
+    
     fprintf(f, "P6\n%d %d\n255\n", WIDTH, HEIGHT);
     fwrite(canvas, sizeof(Color), WIDTH * HEIGHT, f);
     fclose(f);
