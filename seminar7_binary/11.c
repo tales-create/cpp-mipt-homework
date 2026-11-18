@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct { unsigned char r, g, b; } Color;
+typedef struct {
+    unsigned char r, g, b;
+} Color;
 
 int main(int argc, char** argv) {
     if (argc != 2) {
@@ -11,17 +13,10 @@ int main(int argc, char** argv) {
     }
 
     FILE* f = fopen(argv[1], "rb");
-    if (!f) { perror("fopen"); return 1; }
 
     char format[3];
     int w, h, maxval;
     fscanf(f, "%2s %d %d %d\n", format, &w, &h, &maxval);
-
-    if (strcmp(format, "P6") != 0) {
-        printf("Only P6 format supported\n");
-        fclose(f);
-        return 1;
-    }
 
     Color* img = (Color*)malloc(w * h * sizeof(Color));
     fread(img, sizeof(Color), w * h, f);
