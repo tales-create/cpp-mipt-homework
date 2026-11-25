@@ -7,10 +7,6 @@ int main(int argc, char** argv) {
     }
 
     FILE* f = fopen(argv[1], "rb");
-    if (!f) {
-        perror("fopen");
-        return 1;
-    }
 
     fseek(f, 0, SEEK_END);
     long size = ftell(f);
